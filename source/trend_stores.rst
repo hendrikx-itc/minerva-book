@@ -22,8 +22,8 @@ Verify if the trend store is created::
     ---+-------------------+-------------+------------
     1  | node-concentrator | Node        | 0:05:00
 
-Show detailed information about the trend store using the trend store Id found
-in the previous output::
+Show detailed information about the trend store using the Id found in the
+previous output::
 
 	$ minerva trend-store show 1
 	Table Trend Store

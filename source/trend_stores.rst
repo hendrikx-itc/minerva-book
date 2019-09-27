@@ -10,7 +10,7 @@ Trend stores are defined using YAML files in a specific format. Here is an examp
 
 .. literalinclude:: trend_store_example.yaml
 
-You can create the defined trend store in the minerva database using the command::
+You can create the defined trend store in the minerva database using the following command::
 
    $ minerva trend-store create --from-yaml trend_store_example.yaml
    Creating trend store 'node-concentrator' - 'Node'... OK

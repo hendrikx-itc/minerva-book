@@ -17,5 +17,5 @@ materializations. For these materializations, you define a view with a specific
 format and register it as a view materialization. An example view:
 
 .. literalinclude:: view_materialization_example.sql
-   :language: SQL
+   :language: psql
 

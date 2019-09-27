@@ -12,6 +12,7 @@ Welcome to Minerva Book's documentation!
 
    introduction
    trend_stores
+   trend_materialization
 
 
 Indices and tables

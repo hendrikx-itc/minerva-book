@@ -80,7 +80,14 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'github_button': 'true',
+    'github_user': 'hendrikx-itc',
+    'github_repo': 'minerva-book',
+    'show_related': 'true',
+    'show_relbars': 'true',
+    'page_width': '80%'
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

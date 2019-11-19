@@ -44,4 +44,37 @@ previous output::
 					  3  | temperature | float
 
 
+Modifying Trend Stores
+----------------------
+
+When a Minerva database is configured, at some point, you probably will want to
+modify an existing trend store. You might want to:
+
+- Add trends
+- Remove trends
+- Change data type of trends
+
+To do this, you always first update the definition YAML file. Then you can let
+Minerva determine what needs to be changed in the database. This has the
+benefit that you can never change the database and then forget to update your
+definition files.
+
+Add Trends
+~~~~~~~~~~
+
+First add trends in the definition file:
+
+.. literalinclude:: trend_store_example_add_trends.yaml
+
+Then use the following command to add the new trends to the database::
+
+   $ minerva trend-store add-trends --from-yaml trend_store_example_add_trends.yaml
+   Adding trends to trend store 'node-concentrator' - 'Node' - '300s' ... OK
+
+
+Remove Trends
+~~~~~~~~~~~~~
+
+Change Data Type Of Trends
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 

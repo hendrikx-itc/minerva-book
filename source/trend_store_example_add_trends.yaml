@@ -11,3 +11,5 @@ parts:
         data_type: smallint
       - name: temperature
         data_type: float
+      - name: restarts        # < New trend
+        data_type: integer    # <

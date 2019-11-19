@@ -13,9 +13,77 @@ View Based Trend Materialization
 --------------------------------
 
 The easiest method for materializing trend data is by using view
-materializations. For these materializations, you define a view with a specific
-format and register it as a view materialization. An example view:
+materializations. For these materializations, the following components are
+required:
 
-.. literalinclude:: view_materialization_example.sql
+ - A view with a specific format
+ - A target trend store part with the exact same columns as defined in the view
+ - A record in the trend_directory.view_materialization table
+ - Relations between the view materialization and source trend store parts
+ - A fingerprint function
+
+View
+~~~~
+
+We start by defining the view with the required calculations and transformations. A
+
+.. literalinclude:: view_materialization_example_view.sql
    :language: psql
+
+Then create the view using psql::
+
+    $ psql -f view_materialization_example_view.sql
+    CREATE VIEW
+
+Target Table Trend Store Part
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now we define a target table trend store part using the YAML format:
+
+.. literalinclude:: view_materialization_target.yaml
+
+And create the trend store::
+
+    $ minerva trend-store create --from-yaml view_materialization_target.yaml
+    Creating trend store 'node_kpi_300' - 'Node'... OK
+
+A Record In trend_directory.view_materialization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is done using a simple insert:
+
+.. literalinclude:: view_materialization_example_register.sql
+   :language: psql
+
+Run the script::
+
+    $ psql -f view_materialization_example_register.sql
+    INSERT 0 1
+
+Link Materialization To It's Sources
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. literalinclude:: view_materialization_example_links.sql
+   :language: psql
+
+Run the script::
+
+    $ psql -f view_materialization_example_links.sql
+    INSERT 0 1
+
+Define A Fingerprint Function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The fingerprint function is a function that must return a different fingerprint
+whenever one of the sources has changed for the specified timestamp. To achieve
+this, we take the last modified timestamp of each of the sources and combine
+that in the json part of the fingerprint:
+
+.. literalinclude:: view_materialization_example_fingerprint.sql
+   :language: plpgsql
+
+Create the fingerprint function::
+
+    $ psql -f view_materialization_example_fingerprint.sql
+    CREATE FUNCTION
 

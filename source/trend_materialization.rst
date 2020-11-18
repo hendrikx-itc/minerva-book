@@ -98,3 +98,6 @@ materialization, you can do that using the following SQL command::
     FROM trend_directory.materialization m
     WHERE m::text = 'node-concentrator_node_5m';
 
+Keep in mind that the text representation of a materialization is the same as
+the name of the target trend store part, which in turn is the same as the
+corresponding table name.

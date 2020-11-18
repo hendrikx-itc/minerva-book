@@ -87,3 +87,14 @@ Create the fingerprint function::
     $ psql -f view_materialization_example_fingerprint.sql
     CREATE FUNCTION
 
+Manual Materialization
+----------------------
+
+When you want to test a materialization, or rerun a previously run
+materialization, you can do that using the following SQL command::
+
+    SELECT
+        trend_directory.materialize(m, '2020-10-17 13:00')
+    FROM trend_directory.materialization m
+    WHERE m::text = 'node-concentrator_node_5m';
+

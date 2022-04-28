@@ -11,7 +11,7 @@ For running a local Minerva database in a Docker container and communicating
 with it, you will need:
 
 * `Docker <https://www.docker.com>`_
-* PostgreSQL client psql
+* `PostgreSQL client psql <https://www.postgresql.org/docs/current/app-psql.html>`_
 * `Minerva administration tools <https://pypi.org/project/minerva-etl/>`_
 
 

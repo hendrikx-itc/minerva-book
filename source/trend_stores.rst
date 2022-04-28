@@ -12,7 +12,7 @@ Trend stores are defined using YAML files in a specific format. Here is an examp
 
 You can create the defined trend store in the minerva database using the following command::
 
-   $ minerva trend-store create --from-yaml trend_store_example.yaml
+   $ minerva trend-store create trend_store_example.yaml
    Creating trend store 'node-concentrator' - 'Node'... OK
 
 Verify if the trend store is created::
@@ -68,7 +68,7 @@ First add trends in the definition file:
 
 Then use the following command to add the new trends to the database::
 
-   $ minerva trend-store add-trends --from-yaml trend_store_example_add_trends.yaml
+   $ minerva trend-store add-trends trend_store_example_add_trends.yaml
    Adding trends to trend store 'node-concentrator' - 'Node' - '300s' ... OK
 
 

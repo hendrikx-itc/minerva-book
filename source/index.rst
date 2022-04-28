@@ -11,6 +11,7 @@ Welcome to Minerva Book's documentation!
    :caption: Contents:
 
    introduction
+   local_setup
    trend_stores
    trend_materialization
 

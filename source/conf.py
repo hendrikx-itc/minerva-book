@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Minerva Book'
-copyright = '2019, Hendrikx ITC'
+copyright = '2019-2022, Hendrikx ITC'
 author = 'Hendrikx ITC'
 
 # The short X.Y version

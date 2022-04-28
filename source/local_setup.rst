@@ -111,7 +111,7 @@ database to suit the data you want to store in it. In the rest of the
 life-cycle it is used for maintenance tasks, trouble-shooting, data loading
 etc.
 
-Running a simple task like listing all configured data sources::
+Running a simple task like generating an instance report::
 
     $ PGHOST=127.0.0.1 PGDATABASE=minerva PGUSER=postgres minerva report
     Minerva Instance Report

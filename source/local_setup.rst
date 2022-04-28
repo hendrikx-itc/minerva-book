@@ -25,7 +25,7 @@ On Ubuntu, installing Docker can be done using the standard package manager::
 PostgreSQL client psql
 ~~~~~~~~~~~~~~~~~~~~~~
 
-On Ubuntu, using the apt, you can install the PostgreSQL client::
+On Ubuntu, using apt, you can install the PostgreSQL client::
 
     $ sudo apt install postgresql-client
 

@@ -15,7 +15,6 @@ Welcome to Minerva Book's documentation!
    trend_stores
    trend_materialization
 
-
 Indices and tables
 ==================
 

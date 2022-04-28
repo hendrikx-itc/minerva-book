@@ -129,3 +129,30 @@ Running a simple task like generating an instance report::
 This of course returns an empty report, because we haven't configured the Minerva
 instance yet.
 
+It can be a bit cumbersome having to prefix each command with those variables
+PGHOST etc., so we usually store them in a small shell script named e.g.
+``connection_settings.sh``:
+
+.. literalinclude:: environment_variables.sh
+   :language: bash
+
+Then to make the variables available in a terminal session, you can use the
+following command::
+
+    $ source connection_settings.sh
+
+Now, for any further ``minerva`` commands, we can now omit the environment
+variables::
+
+    $ minerva report
+    Minerva Instance Report
+
+    Trend Store Metrics
+
+    Data Source | Entity Type |       Part Name       | Record Count
+    ------------+-------------+-----------------------+-------------
+    node_kpi    | Node        | hub-kpi_node_main_15m |            0
+
+    Attribute Store Metrics
+
+    Name | Record Count | Unique Entity Count | Max Timestamp

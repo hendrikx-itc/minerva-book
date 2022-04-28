@@ -1,9 +1,9 @@
-data_source: node_kpi_5m
+data_source: node_kpi
 entity_type: Node
-granularity: 300s
-partition_size: 86400
+granularity: 900s
+partition_size: 1d
 parts:
-  - name: node-concentrator_node_kpi_5m
+  - name: hub-kpi_node_main_15m
     trends:
-      - name: drop_ratio
+      - name: power_mwh
         data_type: float

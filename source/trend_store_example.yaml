@@ -10,4 +10,4 @@ parts:
       - name: drops
         data_type: smallint
       - name: temperature
-        data_type: float
+        data_type: real

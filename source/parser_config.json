@@ -1,0 +1,22 @@
+{
+    "timestamp": "timestamp",
+    "identifier": "entity",
+    "delimiter": ",",
+    "chunk_size": 5000,
+    "columns": [
+        {
+            "name": "pickups",
+            "data_type": "smallint"
+        },
+        {
+            "name": "drops",
+            "data_type": "smallint"
+        },
+        {
+            "name": "temperature",
+            "data_type": "real"
+        }
+    ],
+    "entity_type": "node",
+    "granularity": "5m"
+}

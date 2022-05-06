@@ -13,6 +13,7 @@ Welcome to Minerva Book's documentation!
    introduction
    local_setup
    trend_stores
+   loading_data
    trend_materialization
 
 Indices and tables

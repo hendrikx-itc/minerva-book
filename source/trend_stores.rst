@@ -32,17 +32,16 @@ previous output::
 	entity_type:      Node
 	data_source:      node-concentrator
 	granularity:      0:05:00
-	partition_size:   86400
+	partition_size:   1 day, 0:00:00
 	retention_period: 30 days, 0:00:00
 	parts:
-					  node-concentrator_node_300 (1)
-					  ==============================
+					  node-concentrator_node_5m (1)
+					  =============================
 					  id |    name     | data_type
 					  ---+-------------+----------
 					  1  | pickups     | smallint 
 					  2  | drops       | smallint 
-					  3  | temperature | float
-
+					  3  | temperature | real
 
 Modifying Trend Stores
 ----------------------

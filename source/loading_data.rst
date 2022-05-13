@@ -79,3 +79,14 @@ Now we can load the CSV data into that trend store::
 
 Here we added the `--statistics` option, which collects some statistics while
 loading and prints them at the end.
+
+When we now look inside the database at the trend store table, we should see the data we just loaded from the CSV file::
+
+    minerva=# select * from trend."node-concentrator_node_5m";
+     entity_id |       timestamp        |            created            | job_id | pickups | drops | temperature | restarts
+    -----------+------------------------+-------------------------------+--------+---------+-------+-------------+----------
+             1 | 2022-04-12 12:55:00+00 | 2022-05-13 13:56:28.751179+00 |      1 |      12 |     3 |        17.3 |
+             2 | 2022-04-12 12:55:00+00 | 2022-05-13 13:56:28.751179+00 |      1 |       0 |     0 |          17 |
+             3 | 2022-04-12 12:55:00+00 | 2022-05-13 13:56:28.751179+00 |      1 |       2 |     0 |        12.8 |
+             4 | 2022-04-12 12:55:00+00 | 2022-05-13 13:56:28.751179+00 |      1 |     147 |     0 |        13.2 |
+    (4 rows)

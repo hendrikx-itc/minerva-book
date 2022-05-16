@@ -15,6 +15,7 @@ Welcome to Minerva Book's documentation!
    trend_stores
    loading_data
    trend_materialization
+   triggers
 
 Indices and tables
 ==================

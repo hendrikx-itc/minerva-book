@@ -1,12 +1,14 @@
 Trend Materialization
 =====================
 
-PostgreSQL provides materialized views to populate tables based on a view. This
-is useful for calculations/transformations that are too slow to calculate each
-time the data is required. Unfortunately, PostgreSQL only supports
-materializing the whole table in one go. Because the tables for trend data are
-meant to be used for very large sets, Minerva has it's own materialization
-mechanism that incrementally materializes data based on what chunks are modified.
+For pre-calculation of KPIs or aggregations, Minerva has support for trend
+materialization. PostgreSQL provides materialized views to populate tables
+based on a view. This is useful for calculations/transformations that are too
+slow to calculate each time the data is required. Unfortunately, PostgreSQL
+only supports materializing the whole table in one go. Because the tables for
+trend data are meant to be used for very large sets, Minerva has it's own
+materialization mechanism that incrementally materializes data based on what
+chunks are modified.
 
 The materialization mechanism supports 2 different types that each has it's own
 pros and cons:

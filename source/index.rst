@@ -15,6 +15,8 @@ Welcome to Minerva Book's documentation!
    trend_stores
    loading_data
    trend_materialization
+   aggregation
+   kpis
    triggers
 
 Indices and tables

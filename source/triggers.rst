@@ -58,7 +58,7 @@ Create Notification Store
 The notifications resulting from a trigger are written to the configured
 notification store. A notification store has a standard format, but the name
 can be chosen. Here is the YAML definition of the notification store we will
-use in this example::
+use in this example:
 
 .. literalinclude:: trigger_notification_store.yaml
    :language: yaml

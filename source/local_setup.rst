@@ -22,13 +22,13 @@ On Ubuntu, installing Docker can be done using the standard package manager::
     $ sudo apt install docker.io
 
 
-Download Minerva administration tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install Minerva administration tools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To download the Minerva administration tools into the user bin directory::
+To install the Minerva administration tools, use the default installation
+script of the minerva-admin repository::
 
-    $ wget -P ~/.local/bin https://github.com/hendrikx-itc/minerva-admin/releases/download/v1.0.0/minerva-admin
-    $ chmod +x ~/.local/bin/minerva-admin
+    $ curl -sS https://raw.githubusercontent.com/hendrikx-itc/minerva-admin/master/install.sh | sh
 
 
 Starting Minerva

@@ -103,7 +103,6 @@ etc.
 Running a simple task like generating an instance definition dump::
 
     $ PGHOST=127.0.0.1 PGDATABASE=minerva PGUSER=postgres minerva-admin dump
-    {}
 
 
 This of course returns an empty dump, because we haven't configured the Minerva
@@ -125,4 +124,3 @@ Now, for any further ``minerva`` commands, we can now omit the environment
 variables::
 
     $ minerva-admin dump
-    {}

@@ -11,8 +11,7 @@ For running a local Minerva database in a Docker container and communicating
 with it, you will need:
 
 * `Docker <https://www.docker.com>`_
-* `PostgreSQL client psql <https://www.postgresql.org/docs/current/app-psql.html>`_
-* `Minerva administration tools <https://pypi.org/project/minerva-etl/>`_
+* `Minerva administration tools <https://github.com/hendrikx-itc/minerva-admin/releases/download/v1.0.0/minerva-admin>`_
 
 
 Install Docker
@@ -22,24 +21,14 @@ On Ubuntu, installing Docker can be done using the standard package manager::
 
     $ sudo apt install docker.io
 
-PostgreSQL client psql
-~~~~~~~~~~~~~~~~~~~~~~
 
-On Ubuntu, using apt, you can install the PostgreSQL client::
+Download Minerva administration tools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    $ sudo apt install postgresql-client
+To download the Minerva administration tools into the user bin directory::
 
-This will install the default PostgreSQL version client for your release of
-Ubuntu, and because we do not need any version specific functionality, this is
-Ok.
-
-
-Install Minerva administration tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To install the Minerva administration tools as a Python package::
-
-    $ python3 -m pip install minerva-etl
+    $ wget -P ~/.local/bin https://github.com/hendrikx-itc/minerva-admin/releases/download/v1.0.0/minerva-admin
+    $ chmod +x ~/.local/bin/minerva-admin
 
 
 Starting Minerva
@@ -111,22 +100,13 @@ database to suit the data you want to store in it. In the rest of the
 life-cycle it is used for maintenance tasks, trouble-shooting, data loading
 etc.
 
-Running a simple task like generating an instance report::
+Running a simple task like generating an instance definition dump::
 
-    $ PGHOST=127.0.0.1 PGDATABASE=minerva PGUSER=postgres minerva report
-    Minerva Instance Report
-
-    Trend Store Metrics
-
-    Data Source | Entity Type | Part Name | Record Count
+    $ PGHOST=127.0.0.1 PGDATABASE=minerva PGUSER=postgres minerva-admin dump
+    {}
 
 
-    Attribute Store Metrics
-
-    Name | Record Count | Unique Entity Count | Max Timestamp
-
-
-This of course returns an empty report, because we haven't configured the Minerva
+This of course returns an empty dump, because we haven't configured the Minerva
 instance yet.
 
 It can be a bit cumbersome having to prefix each command with those variables
@@ -144,15 +124,5 @@ following command::
 Now, for any further ``minerva`` commands, we can now omit the environment
 variables::
 
-    $ minerva report
-    Minerva Instance Report
-
-    Trend Store Metrics
-
-    Data Source | Entity Type |       Part Name       | Record Count
-    ------------+-------------+-----------------------+-------------
-    node_kpi    | Node        | hub-kpi_node_main_15m |            0
-
-    Attribute Store Metrics
-
-    Name | Record Count | Unique Entity Count | Max Timestamp
+    $ minerva-admin dump
+    {}

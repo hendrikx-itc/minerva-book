@@ -18,6 +18,7 @@ Welcome to Minerva Book's documentation!
    aggregation
    kpis
    triggers
+   concurrent_version_control
 
 Indices and tables
 ==================

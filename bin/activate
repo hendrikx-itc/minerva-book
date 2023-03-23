@@ -1,0 +1,53 @@
+# vim: filetype=sh
+#
+# Initialize the WORKSPACE variable and a Python virtualenv if needed.
+#
+
+function absolute_dir {
+    local old_pwd="$(pwd)"
+    cd "$1"
+    pwd
+    cd "$old_pwd"
+}
+
+SHELL_NAME="${SHELL##*/}"
+
+if [ $SHELL_NAME = "bash" ]; then
+    SCRIPT_PATH="${BASH_SOURCE[0]}"
+elif [ $SHELL_NAME = "zsh" ]; then
+    SCRIPT_PATH="${(%):-%x}"
+fi
+
+RELATIVE_SCRIPT_DIR=${SCRIPT_PATH%/*}
+
+SCRIPT_DIR=$(absolute_dir $RELATIVE_SCRIPT_DIR)
+
+export WORKSPACE=${SCRIPT_DIR%/*}
+
+echo "Minerva instance root: $WORKSPACE"
+
+export NITRA_IMPORTER_CONFIG_DIR="$WORKSPACE/import-config/nitra-importer"
+
+if [ -z "$VIRTUAL_ENV" ] || [ ! -d "$VIRTUAL_ENV" ]
+then
+    VENV_DIR="$WORKSPACE/venv"
+
+    if [ ! -d $VENV_DIR ]
+    then
+        echo "Creating virtualenv at $VENV_DIR"
+
+        python3 -m venv $VENV_DIR
+
+        . $VENV_DIR/bin/activate
+
+        pip3 install -r $WORKSPACE/requirements.txt
+    else
+        source $VENV_DIR/bin/activate
+        echo "Using existing virtualenv: $VIRTUAL_ENV"
+    fi
+else
+    echo "Using existing virtualenv: $VIRTUAL_ENV"
+fi
+
+export PATH=$WORKSPACE/bin:$PATH
+
